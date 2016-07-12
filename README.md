@@ -15,6 +15,25 @@ GTIN (UPC, EAN, ITF, etc.) utilities.
 
 ---
 
+`gtin.validate(barcode)`
+---
+
+Validates a GTIN (14, 13, 12, or 8-digit) barcode by check digit. Barcode must be a string.
+
+To validate a UPC-E barcode, expand it first: `validate(upce.expand('01278906'))`
+
+```js
+import {validate} from 'gtin'
+validate('12341238')       // true
+validate('1234123412344')  // true
+validate('12341234123413') // true
+validate('012000007897')   // true
+validate('012000007896')   // false
+validate('abc')            // Error thrown
+validate(123)              // Error thrown
+validate('123')            // Error thrown
+```
+
 `gtin.upce.compress(barcode)`
 ---
 
