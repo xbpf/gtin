@@ -2,7 +2,7 @@
 
 import test from 'ava'
 
-import upce from '../lib/upce'
+import {upce} from '../'
 
 test('compress examples from readme should work (compressable)', t => {
   t.plan(4)
