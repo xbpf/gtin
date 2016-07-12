@@ -1,0 +1,47 @@
+{
+  "name": "gtin",
+  "version": "0.0.0",
+  "description": "GTIN (UPC, EAN, ITF, etc.) utilities.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "standard && ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/xbpf/gtin.git"
+  },
+  "keywords": [
+    "gtin",
+    "upc",
+    "ean",
+    "ucc",
+    "itf",
+    "itf-14",
+    "itf14",
+    "ean-13",
+    "ean13",
+    "ucc-12",
+    "ucc12",
+    "upc-e",
+    "upce",
+    "upca",
+    "upc-a",
+    "validation",
+    "utilities",
+    "valid"
+  ],
+  "author": "Ivan K <ivan@sq10.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xbpf/gtin/issues"
+  },
+  "homepage": "https://github.com/xbpf/gtin#readme",
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "babel-eslint": "^6.1.2",
+    "standard": "^7.1.2"
+  },
+  "dependencies": {
+    "lodash.padstart": "^4.5.0"
+  }
+}
