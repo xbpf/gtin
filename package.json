@@ -1,6 +1,6 @@
 {
   "name": "gtin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "GTIN (UPC, EAN, ITF, etc.) utilities.",
   "main": "lib/index.js",
   "scripts": {
