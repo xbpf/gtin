@@ -15,6 +15,73 @@ GTIN (UPC, EAN, ITF, etc.) utilities.
 
 ---
 
+`gtin.validate(barcode)`
+---
+
+Validates a GTIN (14, 13, 12, or 8-digit) barcode by check digit. Barcode must be a string.
+
+To validate a UPC-E barcode, expand it first: `validate(upce.expand('01278906'))`
+
+```js
+import {validate} from 'gtin'
+validate('12341238')       // true
+validate('1234123412344')  // true
+validate('12341234123413') // true
+validate('012000007897')   // true
+validate('012000007896')   // false
+validate('abc')            // Error thrown
+validate(123)              // Error thrown
+validate('123')            // Error thrown
+```
+
+`gtin.minify(barcode)`
+---
+
+Minifies GTIN to smallest possible representation, by stripping as many leading zeroes as possible. Does not compress to UPC-E.
+
+```js
+import {minify} from 'gtin'
+minify('00000012341238')  // '12341238'
+minify('0000012341238')   // '12341238'
+minify('01234123412344')  // '1234123412344
+minify('001234123412344') // Error thrown
+minify('abc')             // Error thrown
+minify(123)               // Error thrown
+minify('123')             // Error thrown
+```
+
+`gtin.getFormat(barcode)`
+---
+
+Gets the format of the given barcode. Does not validate checksum.
+
+```js
+import {getFormat} from 'gtin'
+getFormat('12341238')       // 'GTIN-8'
+getFormat('123412341234')   // 'GTIN-12'
+getFormat('1234123412344')  // 'GTIN-13'
+getFormat('01234123412344') // 'GTIN-14'
+getFormat('123412381')      // Error thrown
+getFormat('abc')            // Error thrown
+getFormat(123)              // Error thrown
+getFormat('123')            // Error thrown
+```
+
+`gtin.getRealFormat(barcode)`
+---
+
+Gets the real format of the given barcode, by minifying it first.
+
+```js
+import {getFormat} from 'gtin'
+getFormat('1234123412344')  // 'GTIN-13'
+getFormat('01234123412344') // 'GTIN-13'
+getFormat('123412381')      // Error thrown
+getFormat('abc')            // Error thrown
+getFormat(123)              // Error thrown
+getFormat('123')            // Error thrown
+```
+
 `gtin.upce.compress(barcode)`
 ---
 
