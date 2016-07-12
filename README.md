@@ -15,6 +15,16 @@ GTIN (UPC, EAN, ITF, etc.) utilities.
 
 ---
 
+* [gtin.validate(barcode)](#user-content-gtin-validate)
+* [gtin.minify(barcode)](#user-content-gtin-minify)
+* [gtin.getFormat(barcode)](#user-content-gtin-getFormat)
+* [gtin.getRealFormat(barcode)](#user-content-gtin-getRealFormat)
+* [gtin.upce.compress(barcode)](#user-content-gtin-upce-compress)
+* [gtin.upce.expand(barcode)](#user-content-gtin-upce-expand)
+
+---
+
+<a id='gtin-validate'></a>
 `gtin.validate(barcode)`
 ---
 
@@ -34,6 +44,7 @@ validate(123)              // Error thrown
 validate('123')            // Error thrown
 ```
 
+<a id='gtin-minify'></a>
 `gtin.minify(barcode)`
 ---
 
@@ -50,6 +61,7 @@ minify(123)               // Error thrown
 minify('123')             // Error thrown
 ```
 
+<a id='gtin-getFormat'></a>
 `gtin.getFormat(barcode)`
 ---
 
@@ -67,6 +79,7 @@ getFormat(123)              // Error thrown
 getFormat('123')            // Error thrown
 ```
 
+<a id='gtin-getRealFormat'></a>
 `gtin.getRealFormat(barcode)`
 ---
 
@@ -82,6 +95,7 @@ getFormat(123)              // Error thrown
 getFormat('123')            // Error thrown
 ```
 
+<a id='gtin-upce-compress'></a>
 `gtin.upce.compress(barcode)`
 ---
 
@@ -104,6 +118,7 @@ upce.compress('123')          // Error thrown
 upce.compress('abc')          // Error thrown
 ```
 
+<a id='gtin-upce-expand'></a>
 `gtin.upce.expand(barcode)`
 ---
 
