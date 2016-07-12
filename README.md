@@ -15,6 +15,7 @@ GTIN (UPC, EAN, ITF, etc.) utilities.
 
 ---
 
+* [gtin.isGTIN(barcode)](#user-content-gtin-isGTIN)
 * [gtin.validate(barcode)](#user-content-gtin-validate)
 * [gtin.minify(barcode)](#user-content-gtin-minify)
 * [gtin.getFormat(barcode)](#user-content-gtin-getFormat)
@@ -23,6 +24,20 @@ GTIN (UPC, EAN, ITF, etc.) utilities.
 * [gtin.upce.expand(barcode)](#user-content-gtin-upce-expand)
 
 ---
+
+<a id='gtin-isGTIN'></a>
+`gtin.isGTIN(barcode)`
+---
+
+Returns true or false, depending on if the string given is a GTIN barcode. Throws an error if an empty string or anything other than a string is provided.
+
+```js
+import {isGTIN} from 'gtin'
+isGTIN('1234')      // false
+isGTIN('12341238')  // true
+isGTIN('')          // Error thrown
+isGTIN(123)         // Error thrown
+```
 
 <a id='gtin-validate'></a>
 `gtin.validate(barcode)`
