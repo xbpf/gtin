@@ -2,7 +2,7 @@ gtin
 ===
 
 [![npm version](https://img.shields.io/npm/v/gtin.svg?style=flat-square)](https://npmjs.com/package/gtin)
-[![travis build](https://img.shields.io/travis/xbpf/gtin/naster.svg?style=flat-square)](https://travis-ci.org/xbpf/gtin)
+[![travis build](https://img.shields.io/travis/xbpf/gtin/master.svg?style=flat-square)](https://travis-ci.org/xbpf/gtin)
 [![david dependencies](https://david-dm.org/xbpf/gtin.svg?style=flat-square)](https://david-dm.org/xbpf/gtin)
 [![david dev dependencies](https://david-dm.org/xbpf/gtin/dev-status.svg?style=flat-square)](https://david-dm.org/xbpf/gtin)
 [![javascript standard style](https://img.shields.io/badge/code%20style-standard-blue.svg?style=flat-square)](http://standardjs.com/)
