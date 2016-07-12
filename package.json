@@ -4,7 +4,7 @@
   "description": "GTIN (UPC, EAN, ITF, etc.) utilities.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "standard && ava"
+    "test": "standard && nyc ava"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,8 @@
   "devDependencies": {
     "ava": "^0.15.2",
     "babel-eslint": "^6.1.2",
+    "coveralls": "^2.11.11",
+    "nyc": "^7.0.0",
     "standard": "^7.1.2"
   },
   "dependencies": {
