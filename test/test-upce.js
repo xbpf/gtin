@@ -4,7 +4,7 @@ import test from 'ava'
 
 import {upce} from '../'
 
-test('compress examples from readme should work (compressable)', t => {
+test('gtin.upce.compress(barcode) (compressable)', t => {
   t.plan(4)
 
   const cases = [
@@ -22,7 +22,7 @@ test('compress examples from readme should work (compressable)', t => {
   }
 })
 
-test('compress examples from readme should work (uncompressable)', t => {
+test('gtin.upce.compress(barcode) (uncompressable)', t => {
   t.plan(3)
 
   const cases = [
@@ -39,7 +39,7 @@ test('compress examples from readme should work (uncompressable)', t => {
   }
 })
 
-test('compress examples from readme should work (invalid)', t => {
+test('gtin.upce.compress(barcode) (invalid)', t => {
   t.plan(3)
 
   const cases = [
@@ -58,7 +58,7 @@ test('compress examples from readme should work (invalid)', t => {
   }
 })
 
-test('expand examples from readme should work (expandable)', t => {
+test('gtin.upce.expand(barcode) (expandable)', t => {
   t.plan(4)
 
   const cases = [
@@ -76,7 +76,7 @@ test('expand examples from readme should work (expandable)', t => {
   }
 })
 
-test('expand examples from readme should work (invalid)', t => {
+test('gtin.upce.expand(barcode) (invalid)', t => {
   t.plan(4)
 
   const cases = [
