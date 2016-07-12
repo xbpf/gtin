@@ -168,3 +168,45 @@ test('gtin.getRealFormat(barcode) (error)', t => {
     }
   }
 })
+
+test('gtin.isGTIN(barcode) (ok)', t => {
+  t.plan(8)
+
+  const cases = [
+    ['abcdabcdabcd', false],
+    ['1234', false],
+    ['123412341', false],
+    ['12341234123412341', false],
+    ['12341234', true],
+    ['123412341234', true],
+    ['1234123412343', true],
+    ['12341234123434', true]
+  ]
+
+  for (let testCase of cases) {
+    t.is(
+      gtin.isGTIN(testCase[0]),
+      testCase[1]
+    )
+  }
+})
+
+test('gtin.isGTIN(barcode) (error)', t => {
+  t.plan(4)
+
+  const cases = [
+    [123, 'Barcode must be a string'],
+    [{}, 'Barcode must be a string'],
+    [undefined, 'Barcode must be a string'],
+    ['', 'Barcode must not be an empty string']
+  ]
+
+  for (let testCase of cases) {
+    try {
+      gtin.isGTIN(testCase[0])
+      t.fail('Error not thrown')
+    } catch (err) {
+      t.is(err.message, testCase[1])
+    }
+  }
+})
