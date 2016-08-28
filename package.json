@@ -37,11 +37,11 @@
   },
   "homepage": "https://github.com/xbpf/gtin#readme",
   "devDependencies": {
-    "ava": "^0.15.2",
+    "ava": "^0.16.0",
     "babel-eslint": "^6.1.2",
     "coveralls": "^2.11.11",
-    "nyc": "^7.0.0",
-    "standard": "^7.1.2"
+    "nyc": "^8.1.0",
+    "standard": "^8.0.0"
   },
   "dependencies": {
     "lodash.padstart": "^4.5.0"
