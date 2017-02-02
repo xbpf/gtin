@@ -1,6 +1,8 @@
 gtin
 ===
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/xbpf/gtin.svg)](https://greenkeeper.io/)
+
 [![npm version](https://img.shields.io/npm/v/gtin.svg?style=flat-square)](https://npmjs.com/package/gtin)
 [![javascript standard style](https://img.shields.io/badge/code%20style-standard-blue.svg?style=flat-square)](http://standardjs.com/)
 [![travis build](https://img.shields.io/travis/xbpf/gtin/master.svg?style=flat-square)](https://travis-ci.org/xbpf/gtin)
