@@ -20,8 +20,8 @@ GTIN (UPC, EAN, ITF, etc.) utilities.
 * [gtin.minify(barcode)](#user-content-gtin-minify)
 * [gtin.getFormat(barcode)](#user-content-gtin-getFormat)
 * [gtin.getRealFormat(barcode)](#user-content-gtin-getRealFormat)
-* [gtin.upce.compress(barcode)](#user-content-gtin-upce-compress)
-* [gtin.upce.expand(barcode)](#user-content-gtin-upce-expand)
+* [gtin.upcE.compress(barcode)](#user-content-gtin-upcE-compress)
+* [gtin.upcE.expand(barcode)](#user-content-gtin-upcE-expand)
 
 ---
 
@@ -51,7 +51,7 @@ isGTIN(123)         // Error thrown
 Validates a GTIN (14, 13, 12, or 8-digit) barcode by check digit. Barcode must
 be a string.
 
-To validate a UPC-E barcode, expand it first: `isValid(upce.expand('01278906'))`
+To validate a UPC-E barcode, expand it first: `isValid(upcE.expand('01278906'))`
 
 ```js
 import { isValid } from 'gtin'
@@ -121,8 +121,8 @@ getFormat(123)              // Error thrown
 getFormat('123')            // Error thrown
 ```
 
-<a id='gtin-upce-compress'></a>
-`gtin.upce.compress(barcode)`
+<a id='gtin-upcE-compress'></a>
+`gtin.upcE.compress(barcode)`
 ---
 
 Compress a UPC-A barcode to an 8-digit UPC-E barcode. Does not validate
@@ -133,20 +133,20 @@ code by check digit. Barcode must be a string.
 * 10-digit UPC-A: Number system 0 is assumed. Check digit is generated.
 
 ```js
-import { upce } from 'gtin'
+import { upcE } from 'gtin'
 
-upce.compress('1200000789')   // '01278907'
-upce.compress('12000007897')  // '01278907'
-upce.compress('012000007897') // '01278907'
-upce.compress('012000007896') // '01278906'
-upce.compress('012345678905') // null
-upce.compress(123)            // Error thrown
-upce.compress('123')          // Error thrown
-upce.compress('abc')          // Error thrown
+upcE.compress('1200000789')   // '01278907'
+upcE.compress('12000007897')  // '01278907'
+upcE.compress('012000007897') // '01278907'
+upcE.compress('012000007896') // '01278906'
+upcE.compress('012345678905') // null
+upcE.compress(123)            // Error thrown
+upcE.compress('123')          // Error thrown
+upcE.compress('abc')          // Error thrown
 ```
 
-<a id='gtin-upce-expand'></a>
-`gtin.upce.expand(barcode)`
+<a id='gtin-upcE-expand'></a>
+`gtin.upcE.expand(barcode)`
 ---
 
 Expands a UPC-E barcode to a 12-digit UPC-A barcode. Does not validate
@@ -157,14 +157,14 @@ code by check digit. Barcode must be a string.
 * 6-digit UPC-E: Number system 0 is assumed. Check digit is generated.
 
 ```js
-import { upce } from 'gtin'
+import { upcE } from 'gtin'
 
-upce.expand('127890')    // '012000007897'
-upce.expand('1278907')   // '012000007897'
-upce.expand('01278907')  // '012000007897'
-upce.expand('01278906')  // '012000007896'
-upce.expand('123412341') // Error thrown
-upce.expand(123)         // Error thrown
-upce.expand('123')       // Error thrown
-upce.expand('abc')       // Error thrown
+upcE.expand('127890')    // '012000007897'
+upcE.expand('1278907')   // '012000007897'
+upcE.expand('01278907')  // '012000007897'
+upcE.expand('01278906')  // '012000007896'
+upcE.expand('123412341') // Error thrown
+upcE.expand(123)         // Error thrown
+upcE.expand('123')       // Error thrown
+upcE.expand('abc')       // Error thrown
 ```
