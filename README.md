@@ -157,3 +157,9 @@ upce.expand(123)         // Error thrown
 upce.expand('123')       // Error thrown
 upce.expand('abc')       // Error thrown
 ```
+
+## Notes
+
+  - Minimum Node.js: 8
+  - Internet Explorer is not supported
+  - Use gtin 0.3.0 for older browsers or older Node.JS versions
