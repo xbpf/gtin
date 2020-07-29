@@ -4,6 +4,9 @@
 ## Breaking changes
 
 - Minimum supported Node.js version is now `10`.
+- Support for browsers that don't support `String.padStart` (e.g. all IE and opera mini versions) has been removed.
+
+  Use [Babel](https://babeljs.io/) if you need to support older browsers.
 
 Note that this library may still work with older versions and browsers, but no
 effort will be made to fix this library to support those versions.
