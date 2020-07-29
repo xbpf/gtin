@@ -2,7 +2,7 @@
 
 import test from 'ava'
 
-import {upce} from '../'
+import { upce } from '../'
 
 test('gtin.upce.compress(barcode) (compressable)', t => {
   t.plan(7)
@@ -17,7 +17,7 @@ test('gtin.upce.compress(barcode) (compressable)', t => {
     ['012911000050', '01291150']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     t.is(
       upce.compress(testCase[0]),
       testCase[1]
@@ -34,7 +34,7 @@ test('gtin.upce.compress(barcode) (uncompressable)', t => {
     '012345678905'
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     t.is(
       upce.compress(testCase),
       null
@@ -51,7 +51,7 @@ test('gtin.upce.compress(barcode) (invalid)', t => {
     ['abc', 'Barcode is not of a valid format']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     try {
       upce.compress(testCase[0])
       t.fail('Error was not thrown')
@@ -74,7 +74,7 @@ test('gtin.upce.expand(barcode) (expandable)', t => {
     ['01291150', '012911000050']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     t.is(
       upce.expand(testCase[0]),
       testCase[1]
@@ -92,7 +92,7 @@ test('gtin.upce.expand(barcode) (invalid)', t => {
     ['abc', 'Barcode is not of a valid format']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     try {
       upce.expand(testCase[0])
       t.fail('Error was not thrown')
