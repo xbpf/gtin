@@ -1,6 +1,13 @@
 `master`
 ===
 
+No changes yet.
+
+--------------------------------------------------------------------------------
+
+`1.0.0`
+===
+
 ## Breaking changes
 
 - Minimum supported Node.js version is now `10`.

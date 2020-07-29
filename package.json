@@ -1,6 +1,6 @@
 {
   "name": "gtin",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "GTIN (UPC, EAN, ITF, etc.) utilities.",
   "main": "lib/index.js",
   "files": [
@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "test": "standardx src/**/*.ts && tsc --noEmit && jest --collectCoverage",
-    "prepublish": "tsc"
+    "prepare": "tsc"
   },
   "engines": {
     "node": ">=10"
