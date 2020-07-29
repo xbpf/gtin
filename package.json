@@ -4,7 +4,7 @@
   "description": "GTIN (UPC, EAN, ITF, etc.) utilities.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "standard && nyc ava"
+    "test": "standard && jest --collectCoverage"
   },
   "engines": {
     "node": ">=8"
@@ -45,9 +45,13 @@
   "homepage": "https://github.com/xbpf/gtin#readme",
   "dependencies": {},
   "devDependencies": {
-    "ava": "^0.18.0",
     "coveralls": "^3.1.0",
-    "nyc": "^15.1.0",
+    "jest": "^26.1.0",
     "standard": "^14.3.4"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
   }
 }
