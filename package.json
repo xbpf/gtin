@@ -3,8 +3,12 @@
   "version": "0.3.0",
   "description": "GTIN (UPC, EAN, ITF, etc.) utilities.",
   "main": "lib/index.js",
+  "files": [
+    "lib/"
+  ],
   "scripts": {
-    "test": "standard && jest --collectCoverage"
+    "test": "standardx src/**/*.ts && tsc --noEmit && jest --collectCoverage",
+    "prepublish": "tsc"
   },
   "engines": {
     "node": ">=10"
@@ -45,13 +49,25 @@
   "homepage": "https://github.com/xbpf/gtin#readme",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.7",
+    "@typescript-eslint/eslint-plugin": "^3.7.1",
+    "@typescript-eslint/parser": "^3.7.1",
+    "babel-jest": "^26.1.0",
     "coveralls": "^3.1.0",
     "jest": "^26.1.0",
-    "standard": "^14.3.4"
+    "standardx": "^5.0.0",
+    "ts-jest": "^26.1.4",
+    "typescript": "^3.9.7"
   },
-  "standard": {
+  "standardx": {
     "env": [
       "jest"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
     ]
   }
 }

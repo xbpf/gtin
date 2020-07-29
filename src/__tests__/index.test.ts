@@ -1,4 +1,4 @@
-const gtin = require('../')
+import * as gtin from '../'
 
 test.each([
   ['12341238'],
@@ -27,6 +27,7 @@ test.each([
   ['abc', 'Barcode is not of a valid format'],
   ['123', 'Barcode is not of a valid format']
 ])('gtin.isValid(%p) (error: %p)', (barcode, expectedError) => {
+  // @ts-ignore
   expect(() => gtin.isValid(barcode)).toThrow(expectedError)
 })
 
@@ -46,6 +47,7 @@ test.each([
   ['123', 'Barcode is not of a valid format'],
   ['001234123412344', 'Barcode is not of a valid format']
 ])('gtin.minify(%p) (error: %p)', (barcode, expectedError) => {
+  // @ts-ignore
   expect(() => gtin.minify(barcode)).toThrow(expectedError)
 })
 
@@ -64,6 +66,7 @@ test.each([
   ['123', 'Barcode is not of a valid format'],
   ['123412381', 'Barcode is not of a valid format']
 ])('gtin.getFormat(%p) (error: %p)', (barcode, expectedError) => {
+  // @ts-ignore
   expect(() => gtin.getFormat(barcode)).toThrow(expectedError)
 })
 
@@ -80,6 +83,7 @@ test.each([
   ['123', 'Barcode is not of a valid format'],
   ['123412381', 'Barcode is not of a valid format']
 ])('gtin.getRealFormat(%p) (error: %p)', (barcode, expectedError) => {
+  // @ts-ignore
   expect(() => gtin.getRealFormat(barcode)).toThrow(expectedError)
 })
 
@@ -102,5 +106,6 @@ test.each([
   [undefined, 'Barcode must be a string'],
   ['', 'Barcode must not be an empty string']
 ])('gtin.isGTIN(%p) (error: %p)', (barcode, expectedError) => {
+  // @ts-ignore
   expect(() => gtin.isGTIN(barcode)).toThrow(expectedError)
 })

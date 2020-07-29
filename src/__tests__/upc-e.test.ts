@@ -1,4 +1,4 @@
-const gtin = require('../')
+import * as gtin from '../'
 
 test.each([
   ['1200000789', '01278907'],
@@ -25,6 +25,7 @@ test.each([
   ['123', 'Barcode is not of a valid format'],
   ['abc', 'Barcode is not of a valid format']
 ])('gtin.upcE.compress(barcode) (invalid)', (barcode, expectedError) => {
+  // @ts-ignore
   expect(() => gtin.upcE.compress(barcode)).toThrow(expectedError)
 })
 
@@ -46,5 +47,6 @@ test.each([
   ['123', 'Barcode is not of a valid format'],
   ['abc', 'Barcode is not of a valid format']
 ])('gtin.upcE.expand(%p) (error: %p)', (barcode, expectedError) => {
+  // @ts-ignore
   expect(() => gtin.upcE.expand(barcode)).toThrow(expectedError)
 })
