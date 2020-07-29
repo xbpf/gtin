@@ -16,7 +16,7 @@ GTIN (UPC, EAN, ITF, etc.) utilities.
 ---
 
 * [gtin.isGTIN(barcode)](#user-content-gtin-isGTIN)
-* [gtin.validate(barcode)](#user-content-gtin-validate)
+* [gtin.isValid(barcode)](#user-content-gtin-isValid)
 * [gtin.minify(barcode)](#user-content-gtin-minify)
 * [gtin.getFormat(barcode)](#user-content-gtin-getFormat)
 * [gtin.getRealFormat(barcode)](#user-content-gtin-getRealFormat)
@@ -29,44 +29,53 @@ GTIN (UPC, EAN, ITF, etc.) utilities.
 `gtin.isGTIN(barcode)`
 ---
 
-Returns true or false, depending on if the string given is a GTIN barcode. Throws an error if an empty string or anything other than a string is provided.
+Returns true or false, depending on if the string given is a GTIN barcode.
+Throws an error if an empty string or anything other than a string is provided.
+
+**NOTE**: This does not validate the code by check digit. Validation is done
+with `gtin.isValid`.
 
 ```js
-import {isGTIN} from 'gtin'
+import { isGTIN } from 'gtin'
+
 isGTIN('1234')      // false
 isGTIN('12341238')  // true
 isGTIN('')          // Error thrown
 isGTIN(123)         // Error thrown
 ```
 
-<a id='gtin-validate'></a>
-`gtin.validate(barcode)`
+<a id='gtin-isValid'></a>
+`gtin.isValid(barcode)`
 ---
 
-Validates a GTIN (14, 13, 12, or 8-digit) barcode by check digit. Barcode must be a string.
+Validates a GTIN (14, 13, 12, or 8-digit) barcode by check digit. Barcode must
+be a string.
 
-To validate a UPC-E barcode, expand it first: `validate(upce.expand('01278906'))`
+To validate a UPC-E barcode, expand it first: `isValid(upce.expand('01278906'))`
 
 ```js
-import {validate} from 'gtin'
-validate('12341238')       // true
-validate('1234123412344')  // true
-validate('12341234123413') // true
-validate('012000007897')   // true
-validate('012000007896')   // false
-validate('abc')            // Error thrown
-validate(123)              // Error thrown
-validate('123')            // Error thrown
+import { isValid } from 'gtin'
+
+isValid('12341238')       // true
+isValid('1234123412344')  // true
+isValid('12341234123413') // true
+isValid('012000007897')   // true
+isValid('012000007896')   // false
+isValid('abc')            // Error thrown
+isValid(123)              // Error thrown
+isValid('123')            // Error thrown
 ```
 
 <a id='gtin-minify'></a>
 `gtin.minify(barcode)`
 ---
 
-Minifies GTIN to smallest possible representation, by stripping as many leading zeroes as possible. Does not compress to UPC-E.
+Minifies GTIN to smallest possible representation, by stripping as many leading
+zeroes as possible. Does not compress to UPC-E.
 
 ```js
-import {minify} from 'gtin'
+import { minify } from 'gtin'
+
 minify('00000012341238')  // '12341238'
 minify('0000012341238')   // '12341238'
 minify('01234123412344')  // '1234123412344
@@ -83,7 +92,8 @@ minify('123')             // Error thrown
 Gets the format of the given barcode. Does not validate checksum.
 
 ```js
-import {getFormat} from 'gtin'
+import { getFormat } from 'gtin'
+
 getFormat('12341238')       // 'GTIN-8'
 getFormat('123412341234')   // 'GTIN-12'
 getFormat('1234123412344')  // 'GTIN-13'
@@ -101,7 +111,8 @@ getFormat('123')            // Error thrown
 Gets the real format of the given barcode, by minifying it first.
 
 ```js
-import {getFormat} from 'gtin'
+import { getFormat } from 'gtin'
+
 getFormat('1234123412344')  // 'GTIN-13'
 getFormat('01234123412344') // 'GTIN-13'
 getFormat('123412381')      // Error thrown
@@ -122,7 +133,8 @@ code by check digit. Barcode must be a string.
 * 10-digit UPC-A: Number system 0 is assumed. Check digit is generated.
 
 ```js
-import {upce} from 'gtin'
+import { upce } from 'gtin'
+
 upce.compress('1200000789')   // '01278907'
 upce.compress('12000007897')  // '01278907'
 upce.compress('012000007897') // '01278907'
@@ -145,7 +157,8 @@ code by check digit. Barcode must be a string.
 * 6-digit UPC-E: Number system 0 is assumed. Check digit is generated.
 
 ```js
-import {upce} from 'gtin'
+import { upce } from 'gtin'
+
 upce.expand('127890')    // '012000007897'
 upce.expand('1278907')   // '012000007897'
 upce.expand('01278907')  // '012000007897'
@@ -155,9 +168,3 @@ upce.expand(123)         // Error thrown
 upce.expand('123')       // Error thrown
 upce.expand('abc')       // Error thrown
 ```
-
-## Notes
-
-  - Minimum Node.js: 8
-  - Internet Explorer is not supported
-  - Use gtin 0.3.0 for older browsers or older Node.JS versions
