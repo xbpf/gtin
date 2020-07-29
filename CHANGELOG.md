@@ -21,7 +21,9 @@
 
 ## Other changes
 
-- TODO: Typescript support
+- Typescript support
+
+  `.d.ts` declaration files are now included in the published package.
 
 --------------------------------------------------------------------------------
 

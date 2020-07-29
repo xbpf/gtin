@@ -1,8 +1,12 @@
-const common = require('./common')
+import {
+  generateCheckDigit,
+  NONSTRING_ERR,
+  FORMAT_ERR
+} from './common'
 
-function expand (barcode) {
-  if (typeof barcode !== 'string') throw new Error(common.NONSTRING_ERR)
-  if (!/^\d{6,8}$/.test(barcode)) throw new Error(common.FORMAT_ERR)
+export function expand (barcode: string) {
+  if (typeof barcode !== 'string') throw new Error(NONSTRING_ERR)
+  if (!/^\d{6,8}$/.test(barcode)) throw new Error(FORMAT_ERR)
   return setCheckDigit(
     setNumberSystem(
       expandBarcode(
@@ -12,11 +16,12 @@ function expand (barcode) {
   )
 }
 
-function expandBarcode (barcode) {
+function expandBarcode (barcode: string) {
   const digits = barcode.split('')
-  const numberSystem = (digits.length > 7) ? digits.shift() : ''
-  const checkDigit = (digits.length > 6) ? digits.pop() : ''
-  const lastDigit = +digits.pop()
+  const numberSystem = (digits.length > 7) ? digits.shift()! : ''
+  const checkDigit = (digits.length > 6) ? digits.pop()! : ''
+  const lastDigit = +digits.pop()!
+
   let expanded
 
   switch (lastDigit) {
@@ -41,9 +46,9 @@ function expandBarcode (barcode) {
   return numberSystem + expanded + checkDigit
 }
 
-function compress (barcode) {
-  if (typeof barcode !== 'string') throw new Error(common.NONSTRING_ERR)
-  if (!/^\d{10,12}$/.test(barcode)) throw new Error(common.FORMAT_ERR)
+export function compress (barcode: string) {
+  if (typeof barcode !== 'string') throw new Error(NONSTRING_ERR)
+  if (!/^\d{10,12}$/.test(barcode)) throw new Error(FORMAT_ERR)
   return compressBarcode(
     setCheckDigit(
       setNumberSystem(
@@ -53,7 +58,7 @@ function compress (barcode) {
   )
 }
 
-function compressBarcode (barcode) {
+function compressBarcode (barcode: string) {
   const v1 = /^(\d{3})([0-2])0{4}(\d{3})(\d{1})$/
   const v2 = /^(\d{3})([3-9])0{5}(\d{2})(\d{1})$/
   const v3 = /^(\d{5})0{5}(\d{1})(\d{1})$/
@@ -83,21 +88,18 @@ function compressBarcode (barcode) {
   return null
 }
 
-function setCheckDigit (barcode) {
+function setCheckDigit (barcode: string) {
   return (
     (barcode.length !== 12 && barcode.length !== 8)
-      ? barcode + common.generateCheckDigit(barcode)
+      ? barcode + generateCheckDigit(barcode)
       : barcode
   )
 }
 
-function setNumberSystem (barcode) {
+function setNumberSystem (barcode: string) {
   return (
     (barcode.length !== 12 && barcode.length !== 8)
       ? '0' + barcode
       : barcode
   )
 }
-
-exports.expand = expand
-exports.compress = compress
