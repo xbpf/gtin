@@ -14,7 +14,7 @@ test('gtin.validate(barcode) (valid)', t => {
     '12341234123413'
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     t.is(gtin.validate(testCase), true)
   }
 })
@@ -29,7 +29,7 @@ test('gtin.validate(barcode) (invalid)', t => {
     ['1234123412341', 3]
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     for (let i = 0; i < 10; i++) {
       if (i === testCase[1]) continue
       t.is(gtin.validate(testCase[0] + String(i)), false)
@@ -46,7 +46,7 @@ test('gtin.validate(barcode) (error)', t => {
     ['123', 'Barcode is not of a valid format']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     try {
       gtin.validate(testCase[0])
       t.fail('Error not thrown')
@@ -67,7 +67,7 @@ test('gtin.minify(barcode) (minified)', t => {
     ['01234123412344', '1234123412344']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     t.is(
       gtin.minify(testCase[0]),
       testCase[1]
@@ -85,7 +85,7 @@ test('gtin.minify(barcode) (error)', t => {
     ['001234123412344', 'Barcode is not of a valid format']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     try {
       gtin.minify(testCase[0])
       t.fail('Error not thrown')
@@ -105,7 +105,7 @@ test('gtin.getFormat(barcode) (ok)', t => {
     ['01234123412344', 'GTIN-14']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     t.is(
       gtin.getFormat(testCase[0]),
       testCase[1]
@@ -123,7 +123,7 @@ test('gtin.getFormat(barcode) (error)', t => {
     ['123412381', 'Barcode is not of a valid format']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     try {
       gtin.getFormat(testCase[0])
       t.fail('Error not thrown')
@@ -141,7 +141,7 @@ test('gtin.getRealFormat(barcode) (ok)', t => {
     ['01234123412344', 'GTIN-13']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     t.is(
       gtin.getRealFormat(testCase[0]),
       testCase[1]
@@ -159,7 +159,7 @@ test('gtin.getRealFormat(barcode) (error)', t => {
     ['123412381', 'Barcode is not of a valid format']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     try {
       gtin.getRealFormat(testCase[0])
       t.fail('Error not thrown')
@@ -183,7 +183,7 @@ test('gtin.isGTIN(barcode) (ok)', t => {
     ['12341234123434', true]
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     t.is(
       gtin.isGTIN(testCase[0]),
       testCase[1]
@@ -201,7 +201,7 @@ test('gtin.isGTIN(barcode) (error)', t => {
     ['', 'Barcode must not be an empty string']
   ]
 
-  for (let testCase of cases) {
+  for (const testCase of cases) {
     try {
       gtin.isGTIN(testCase[0])
       t.fail('Error not thrown')
