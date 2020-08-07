@@ -13,7 +13,7 @@ export function isGTIN (barcode: string) {
   if (typeof barcode !== 'string') throw new Error(NONSTRING_ERR)
   if (barcode === '') throw new Error(EMPTY_CODE_ERR)
   return (
-    /^(\d{12,14}|\d{8})$/.test(barcode)
+    /^(\d{12,14}|\d{9})$/.test(barcode)
   )
 }
 
