@@ -111,14 +111,14 @@ getFormat('123')            // Error thrown
 Gets the real format of the given barcode, by minifying it first.
 
 ```js
-import { getFormat } from 'gtin'
+import { getRealFormat } from 'gtin'
 
-getFormat('1234123412344')  // 'GTIN-13'
-getFormat('01234123412344') // 'GTIN-13'
-getFormat('123412381')      // Error thrown
-getFormat('abc')            // Error thrown
-getFormat(123)              // Error thrown
-getFormat('123')            // Error thrown
+getRealFormat('1234123412344')  // 'GTIN-13'
+getRealFormat('01234123412344') // 'GTIN-13'
+getRealFormat('123412381')      // Error thrown
+getRealFormat('abc')            // Error thrown
+getRealFormat(123)              // Error thrown
+getRealFormat('123')            // Error thrown
 ```
 
 <a id='gtin-upcE-compress'></a>
